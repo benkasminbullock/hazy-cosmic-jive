@@ -7,6 +7,7 @@ use Perl::Build qw/get_version get_commit/;
 use Perl::Build::Pod ':all';
 use Deploy qw/do_system older/;
 use Getopt::Long;
+use Date::Calc 'Today';
 my $ok = GetOptions (
     'force' => \my $force,
     'verbose' => \my $verbose,
@@ -24,11 +25,14 @@ my $pod = 'Jive.pod';
 my $input = "$Bin/lib/Hazy/Cosmic/$pod.tmpl";
 my $output = "$Bin/lib/Hazy/Cosmic/$pod";
 
+my ($year, undef, undef) = Today ();
+
 # Template toolkit variable holder
 
 my %vars = (
     version => $version,
     commit => $commit,
+    this_year => $year,
 );
 
 my $tt = Template->new (
