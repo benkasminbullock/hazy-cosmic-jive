@@ -3,4 +3,7 @@ bcd.c
 # Binaries
 bcd-test
 bcd-logs
+# Output
+bcd.json
+
 
