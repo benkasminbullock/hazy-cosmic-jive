@@ -8,7 +8,6 @@ perl_build (
 	dir => "$Bin/bcd",
 	stems => ['bcd'],
     }],
-    pre => "$Bin/copy.pl",
     make_pod => "$Bin/make-pod.pl",
 );
 exit;

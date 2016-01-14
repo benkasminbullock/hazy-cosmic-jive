@@ -13,7 +13,6 @@ int main (int argc, char ** argv)
 	double * spd;
 	double log_10_sp;
 	int powten;
-	int powtwo;
 	double reduced;
 	double log_10_r;
 	char logout[0x20];
