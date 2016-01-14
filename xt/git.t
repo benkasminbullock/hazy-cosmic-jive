@@ -1,6 +1,7 @@
 use Test::More;
 use File::Temp 'tempfile';
 use Path::Tiny;
+use FindBin '$Bin';
 my $builder = Test::More->builder;
 binmode $builder->output,         ":utf8";
 binmode $builder->failure_output, ":utf8";
