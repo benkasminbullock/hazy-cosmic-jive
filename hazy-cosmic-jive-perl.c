@@ -1,14 +1,18 @@
-typedef struct {
-
-}
-hazy_cosmic_jive_t;
-
-static int
-perl_error_handler (const char * file, int line_number, const char * msg, ...)
+SV *
+bcd_float_to_string (SV * d)
 {
-    va_list args;
-    va_start (args, msg);
-    vcroak (msg, & args);
-    va_end (args);
-    return 0;
+    char buffer[0x100] = {0};
+    int printed;
+    SV * r;
+    if (! SvNOK (d)) {
+	warn ("Not a number");
+	return & PL_sv_undef;
+    }
+    printed = print_double (SvNV (d), buffer);
+    if (printed < 0) {
+	warn ("Error %d printing number %g", printed, SvNV (d));
+	return & PL_sv_undef;
+    }
+    r = newSVpv (buffer, (STRLEN) printed);
+    return r;
 }

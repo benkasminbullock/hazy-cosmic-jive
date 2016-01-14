@@ -17,3 +17,8 @@ ppport.h
 lib/Hazy/Cosmic/Jive.pod
 MANIFEST
 README
+# Copied
+bcd.c
+split-double.h
+# Junk build file
+makeitfile

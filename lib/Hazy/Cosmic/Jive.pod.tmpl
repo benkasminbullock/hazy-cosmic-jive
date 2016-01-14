@@ -3,16 +3,81 @@
 
 =head1 NAME
 
-Hazy::Cosmic::Jive - abstract here.
+Hazy::Cosmic::Jive - stringify floating point numbers
 
 =head1 SYNOPSIS
 
-    use Hazy::Cosmic::Jive;
+    use Hazy::Cosmic::Jive float_to_string;
+    my $string = float_to_string (0.1);
+
+=head1 VERSION
+
+This document describes Hazy::Cosmic::Jive version [% version %]
+corresponding to git commit [% commit.commit %].
 
 =head1 DESCRIPTION
 
+This is an experimental module related to "stringification"
+(converting an NV into a PV) of floating point numbers.
+
+This module is a helper for the L</JSON::Create> serializer, intended
+to test out floating point serialization without inconveniencing users
+of that module with a multiplicity of testing versions.
+
 =head1 FUNCTIONS
 
-=cut
+=head2 float_to_string
+
+    my $string = float_to_string (0.1);
+
+Convert an internal representation of a floating point number into a
+string representation, bypassing Perl's system in favour of our own
+method.
+
+If the argument is not a floating point number, this prints a warning
+L</Not a number> and returns the undefined value.
+
+=head1 DIAGNOSTICS
+
+=over
+
+=item Not a number
+
+The input is not a number.
+
+=item Error %d printing number %g
+
+An unexpected condition occurred printing a number.
+
+=back
+
+=head1 HISTORY
+
+=over
+
+=item 0.01
+
+=over
+
+=item * Test whether the methodology for splitting 64 bit floating point
+numbers is valid for a variety of CPAN testers' machines.
+
+=item * Test whether sprintf results are consistent over CPAN testers'
+machines.
+
+=back
+
+=back
+
+=head1 SEE ALSO
+
+=over
+
+=item L<JSON::Create>
+
+=item L<Data::Float>
+
+=back
+
 [% INCLUDE "author" %]
-[% INCLUDE "terminology" %]
+

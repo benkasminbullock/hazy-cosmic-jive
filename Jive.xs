@@ -2,15 +2,18 @@
 #include "perl.h"
 #include "XSUB.h"
 #include "ppport.h"
-
+#include "bcd.c"
 #include "hazy-cosmic-jive-perl.c"
-
-typedef hazy_cosmic_jive_t * Hazy__Cosmic__Jive;
 
 MODULE=Hazy::Cosmic::Jive PACKAGE=Hazy::Cosmic::Jive
 
 PROTOTYPES: DISABLE
 
-BOOT:
-	/* Hazy__Cosmic__Jive_error_handler = perl_error_handler; */
+SV *
+float_to_string(d)
+	SV * d;
+CODE:
+	RETVAL = bcd_float_to_string (d);
+OUTPUT:
+	RETVAL
 
