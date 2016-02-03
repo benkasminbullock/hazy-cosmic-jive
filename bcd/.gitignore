@@ -3,6 +3,8 @@ bcd.c
 # Binaries
 bcd-test
 bcd-logs
+mpfr-test
+bcd-mpfr-logs
 # Output
 bcd.json
 
