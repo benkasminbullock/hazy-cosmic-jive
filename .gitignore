@@ -22,3 +22,5 @@ bcd.c
 split-double.h
 # Junk build file
 makeitfile
+bcd/bcd.h
+bcd.h

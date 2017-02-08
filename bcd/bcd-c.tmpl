@@ -1,3 +1,4 @@
+[% stamp -%]
 #ifdef TEST
 #include <stdio.h>
 #endif /* def TEST */
@@ -206,6 +207,7 @@ print_double (double d, char * buffer)
 
 #ifdef TEST
 
+#if 0
 static void ruler ()
 {
     int i;
@@ -214,6 +216,7 @@ static void ruler ()
     }
     printf ("\n");
 }
+#endif /* 0 */
 
 static void doit (double d)
 {

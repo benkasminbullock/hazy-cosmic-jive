@@ -3,7 +3,7 @@ use warnings;
 use strict;
 use utf8;
 use FindBin '$Bin';
-use Perl::Build qw/get_version get_commit/;
+use Perl::Build qw/get_commit get_info/;
 use Perl::Build::Pod ':all';
 use Deploy qw/do_system older/;
 use Getopt::Long;
@@ -17,7 +17,7 @@ if (! $ok) {
     exit;
 }
 my %pbv = (base => $Bin);
-my $version = get_version (%pbv);
+my $info = get_info (%pbv);
 my $commit = get_commit (%pbv);
 # Names of the input and output files containing the documentation.
 
@@ -30,7 +30,7 @@ my ($year, undef, undef) = Today ();
 # Template toolkit variable holder
 
 my %vars = (
-    version => $version,
+    info => $info,
     commit => $commit,
     this_year => $year,
 );
